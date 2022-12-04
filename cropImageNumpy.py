@@ -1,8 +1,13 @@
 import numpy as np
+import cv2
 
 class CropImageNumpy:
 
-    def usingNp():
+    def __init__(self, y, x):
+        self.y = y
+        self.x = x
+
+    def using_np():
         # criar uma matriz para manipular a imagem, toda imagem é na verdade uma matriz
         # Imagem é uma matriz de diversos números de 0 a 255 em rgb. Não irei usar rgb, será mais simples.
 
@@ -21,6 +26,59 @@ class CropImageNumpy:
         print(croped)
 
 
+    def turn_image_into_matrix(self):
+        # essa function será criada no intuito de retornar a matriz de uma determinada imagem
+        pass
+
+
+    def parameter_return_y():
+        # pegar o retorno da matriz de imagem aqui
+        # essa function será criada no intuito de retornar os valores dos eixos x e y para manipular na function using_cv() que será a do recorte..
+        
+        y = 100
+
+        return y
+
+    def parameter_return_x():
+        # pegar o retorno da matriz de imagem aqui
+        # essa function será criada no intuito de retornar os valores dos eixos x e y para manipular na function using_cv() que será a do recorte..
+        
+        x = 50
+
+        return x
+
+
+
+    def using_cv():     
+        # Parâmetros: y = linha vertical, x = linha horizontal, h = altura, w = largura
+
+        # eixoY = self.parameter_return_y()
+        # eixoX = self.parameter_return_x()
+
+        # print(eixoY, eixoX)
+
+        img = cv2.imread('Images/image1.jpg')
+        cv2.imshow('image', img)
+        cv2.waitKey(0) # espera qualquer tecla
+
+        # eixos inicias
+        # y = eixoY
+        # x = eixoX
+
+        y = 300
+        x = 500
+        h = 500  # height
+        w = 400  # width
+
+        croped = img[y:y+h, x:x+w] # Eixos y,x. Eixo y com recorte começando no pixel 100 até 200. Eixo x do pixel 50 até 300
+        
+        cv2.imshow('imageCv', croped)
+        cv2.waitKey(0)
+
+        cv2.destroyAllWindows()
+
+
 if __name__ == "__main__": 
     cmd = CropImageNumpy
-    cmd.usingNp()  
+    #cmd.using_np()  
+    cmd.using_cv()
