@@ -79,7 +79,7 @@ class CropImageNumpy:
         cv2.destroyAllWindows()
 
 
-    def recort():
+    def dimensios(self):
         # Essa function deverar abrir a imagem e ter um seletor para o usuário selecionar os eixos onde deseja recortar
         # Após eixos selecionados deverá ter um button de aplicar e a function deve retornar os valores desses eixos
         # Após valores dos eixos retornados deverá ser utilizado na function de recorte
@@ -91,8 +91,14 @@ class CropImageNumpy:
         img = cv2.imread('Images/image1.jpg')
         cv2.imshow('image', img) 
         cv2.waitKey(0) 
+
+        # os pixels abaixo foram retirados do gimp 
+        # 1161 e 1315 a 1507 e 1331 [largura = x]
+        # 1161 e 1315 a 1161 e 2431 [altura = y]
+        
         # y, x
-        croped = img[250:500, 150:300]
+        #croped = img[250:500, 150:300]
+        croped = img[1315:2431, 1161:1507] # y, x
         cv2.imshow('imageCroped', croped)
         cv2.waitKey(0)
         cv2.destroyAllWindows()
