@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 
 class CropImageNumpy:
-
+    
     def __init__(self, y, x):
         self.y = y
         self.x = x
@@ -29,6 +29,7 @@ class CropImageNumpy:
     def turn_image_into_matrix(self):
         # essa function será criada no intuito de retornar a matriz de uma determinada imagem
         pass
+        # NÃO necessário se for usar o OpenCv
 
 
     def parameter_return_y():
@@ -48,7 +49,6 @@ class CropImageNumpy:
         return x
 
 
-
     def using_cv():     
         # Parâmetros: y = linha vertical, x = linha horizontal, h = altura, w = largura
 
@@ -56,29 +56,49 @@ class CropImageNumpy:
         # eixoX = self.parameter_return_x()
 
         # print(eixoY, eixoX)
-
         img = cv2.imread('Images/image1.jpg')
         cv2.imshow('image', img)
         cv2.waitKey(0) # espera qualquer tecla
+
+        # assistir: https://www.youtube.com/watch?v=Kc8RFqHE4fk
 
         # eixos inicias
         # y = eixoY
         # x = eixoX
 
         y = 300
-        x = 500
-        h = 500  # height
-        w = 400  # width
+        x = 500     
+        h = 200  # height
+        w = 500  # width
 
         croped = img[y:y+h, x:x+w] # Eixos y,x. Eixo y com recorte começando no pixel 100 até 200. Eixo x do pixel 50 até 300
         
         cv2.imshow('imageCv', croped)
         cv2.waitKey(0)
-
+        
         cv2.destroyAllWindows()
 
+
+    def recort():
+        # Essa function deverar abrir a imagem e ter um seletor para o usuário selecionar os eixos onde deseja recortar
+        # Após eixos selecionados deverá ter um button de aplicar e a function deve retornar os valores desses eixos
+        # Após valores dos eixos retornados deverá ser utilizado na function de recorte
+        pass
+
+
+    def newCroped():
+        #https://www.youtube.com/watch?v=HzgYJXoj92A
+        img = cv2.imread('Images/image1.jpg')
+        cv2.imshow('image', img) 
+        cv2.waitKey(0) 
+        # y, x
+        croped = img[250:500, 150:300]
+        cv2.imshow('imageCroped', croped)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
 if __name__ == "__main__": 
     cmd = CropImageNumpy
     #cmd.using_np()  
-    cmd.using_cv()
+    #cmd.using_cv()
+    cmd.newCroped()
