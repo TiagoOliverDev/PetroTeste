@@ -1,5 +1,7 @@
 import numpy as np
 import cv2
+from PIL import Image 
+import numpy as gfg 
 
 class CropImageNumpy:
     
@@ -79,7 +81,7 @@ class CropImageNumpy:
         cv2.destroyAllWindows()
 
 
-    def dimensios(self):
+    def dimensions(self):
         # Essa function deverar abrir a imagem e ter um seletor para o usuário selecionar os eixos onde deseja recortar
         # Após eixos selecionados deverá ter um button de aplicar e a function deve retornar os valores desses eixos
         # Após valores dos eixos retornados deverá ser utilizado na function de recorte
@@ -103,8 +105,14 @@ class CropImageNumpy:
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+    def convertToMatrice(image):
+        img = Image.open(image) 
+        imageToMatrice = gfg.asarray(img) 
+        print(imageToMatrice.shape)
+
 if __name__ == "__main__": 
     cmd = CropImageNumpy
     #cmd.using_np()  
     #cmd.using_cv()
-    cmd.newCroped()
+    #cmd.newCroped()
+    cmd.convertToMatrice(image='Images/image1.jpg')
