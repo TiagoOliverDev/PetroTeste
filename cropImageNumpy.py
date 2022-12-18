@@ -2,12 +2,14 @@ import numpy as np
 import cv2
 from PIL import Image 
 import numpy as gfg 
+from matplotlib import pyplot as plt
 
 class CropImageNumpy:
     
-    def __init__(self, y, x):
-        self.y = y
-        self.x = x
+    def __init__(self):
+        # self.y = y
+        # self.x = x
+        pass
 
     def using_np():
         # criar uma matriz para manipular a imagem, toda imagem é na verdade uma matriz
@@ -61,13 +63,9 @@ class CropImageNumpy:
         img = cv2.imread('Images/image1.jpg')
         cv2.imshow('image', img)
         cv2.waitKey(0) # espera qualquer tecla
-
-        # assistir: https://www.youtube.com/watch?v=Kc8RFqHE4fk
-
         # eixos inicias
         # y = eixoY
         # x = eixoX
-
         y = 300
         x = 500     
         h = 200  # height
@@ -105,6 +103,32 @@ class CropImageNumpy:
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+    def showImage(self, img):
+        #https://www.youtube.com/watch?v=HzgYJXoj92A
+        #https://www.youtube.com/watch?v=mW-PmvvzXP8
+        
+        img = cv2.imread('Images/image1.jpg', 0)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+        plt.imshow(img) 
+        plt.show()
+
+    def cropedDinamic():
+        obj_img = cv2.imread('Images/image1.jpg', 0)
+        obj_img = cv2.cvtColor(obj_img, cv2.COLOR_BGR2RGB)
+
+        #print("height, widht, qtd_canaisDeCor: ", obj_img.shape)
+
+        height, widht, qtd_canaisDeCor = obj_img.shape
+        print("Dimensões da imagem: " + str(widht) + "x" + str(height))
+        print("Canais de cor: ", qtd_canaisDeCor)
+
+
+        plt.imshow(obj_img) 
+        plt.show()
+        
+
+    # function criada para converter imagem em matrix    
     def convertToMatrice(image):
         img = Image.open(image) 
         imageToMatrice = gfg.asarray(img) 
@@ -115,4 +139,5 @@ if __name__ == "__main__":
     #cmd.using_np()  
     #cmd.using_cv()
     #cmd.newCroped()
-    cmd.convertToMatrice(image='Images/image1.jpg')
+    #cmd.convertToMatrice(image='Images/image1.jpg')
+    cmd.cropedDinamic()
