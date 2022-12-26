@@ -10,7 +10,7 @@ class CropImageNumpy:
         # self.y = y
         # self.x = x
         pass
-
+        
     def using_np():
         # criar uma matriz para manipular a imagem, toda imagem é na verdade uma matriz
         # Imagem é uma matriz de diversos números de 0 a 255 em rgb. Não irei usar rgb, será mais simples.
@@ -123,10 +123,19 @@ class CropImageNumpy:
         print("Dimensões da imagem: " + str(widht) + "x" + str(height))
         print("Canais de cor: ", qtd_canaisDeCor)
 
+        # for y in range(0, height):
+        #     for x in range(0, widht):
+        #         print("[" + str(x) + "," + str(y) + "] = " + str(obj_img[y][x]))
+        #         # input()
+
+        # petro = obj_img[]
+
 
         plt.imshow(obj_img) 
         plt.show()
         
+        cv2.imwrite("Image croped.png", obj_img)
+
 
     # function criada para converter imagem em matrix    
     def convertToMatrice(image):
